@@ -20,22 +20,27 @@ async function caculateTotal(userCart) {
 }
 
 /* Deletar item do carrinho */
-async function deleteItem(userCart, name) { 
+async function deleteItem(userCart, name) {
     const index = userCart.findIndex((item) => item.name === name);
 
-    if(index ==! -1){
+    if (index == ! -1) {
         userCart.splice(index, 1);
     }
 }
 
 /* Remover um item - Diminuir um item*/
-async function removeItem(userCart, index) { }
+async function removeItem(userCart, index) {
+    const deleteIndex = index - 1;
+    if (index >= 0 && index < userCart.length) {
+        userCart.splice(deleteIndex, 1);
+    }
+}
 
 
 export {
     addItem,
     caculateTotal,
-    deleteItem, 
+    deleteItem,
     removeItem,
     displayCart,
 }
