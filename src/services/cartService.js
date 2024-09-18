@@ -1,9 +1,22 @@
 
 /* Adicionar item no carrinho */
-async function addItem(userCart) { }
+async function addItem(userCart, item) {
+    userCart.push(item);
+}
+/* Calcular o total do carrinho */
+async function caculateTotal(userCart) {
+    return userCart.reduce((total, item) => total + item.subtotal(), 0);
+}
+/* Deletar item do carrinho */
+async function deleteItem(userCart, name) { }
 
 /* Remover um item - Diminuir um item*/
-async function remveItem(userCart, index) { }
+async function removeItem(userCart, index) { }
 
-/* Calcular o total do carrinho */
-async function caculateTotal(useCart) { }
+
+export {
+    addItem,
+    caculateTotal,
+    deleteItem, 
+    removeItem,
+}
