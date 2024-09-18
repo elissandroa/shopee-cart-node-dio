@@ -36,6 +36,30 @@ async function removeItem(userCart, index) {
     }
 }
 
+/* Diminuir um item do carrinho */
+async function decreeseItem(userCart, item) {
+    /*1. Encontrar o índice do item */
+    const indexFound = userCart.findIndex((p) => p.name === item.name);
+    console.log(indexFound);
+
+    /*2. Caso item não seja econtrado */
+    if(indexFound === -1){
+        console.log('Item não encontrado!')
+        return;
+    }
+
+    /* 3. Item > 1 subtrair um item */
+    if(userCart[indexFound].quantity > 1) {
+        userCart[indexFound].quantity -= 1;
+        return;
+    }
+    /* 4. Caso item = 1 deletar o item */
+    if(userCart[indexFound].quantity === 1) {
+       userCart.splice(indexFound, 1);
+       return;
+    }
+}
+
 
 export {
     addItem,
@@ -43,4 +67,5 @@ export {
     deleteItem,
     removeItem,
     displayCart,
+    decreeseItem,
 }

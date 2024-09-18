@@ -18,8 +18,16 @@ await cartService.addItem(myCart, item2);
 await cartService.addItem(myCart, item3);
 await cartService.addItem(myCart, item4);
 
+
+
+
+
+
+
 await cartService.deleteItem(myCart, item1.name)
 await cartService.removeItem(myCart, 2);
+await cartService.decreeseItem(myCart, item4);
+await cartService.decreeseItem(myCart, item4);
 await cartService.displayCart(myCart);
 
 console.log("🎁Total:", await cartService.caculateTotal(myCart));
